@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import profilePicture from '../app/profile_picture.png'
+import profilePicture from '../public/profile_picture.png'
 const About = () => {
     return (
         <div className='about flex flex-col justify-center items-center h-screen' id='about'>
