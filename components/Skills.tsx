@@ -2,44 +2,81 @@ import React from 'react'
 
 const Skills = () => {
     return (
-        <div id='skills' className='grid grid-cols-4 place-items-center justify-items-center w-4/5 mx-auto'>
-            <div className='frontend_skills border-solid border-2 border-sky-500'>
-                <h1 className='text-4xl font-bold'>Frontend</h1>
-                <ul className='gap-y-3'>
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>Tailwind-CSS</li>
-                    <li>JavaScript</li>
-                    <li>TypeScript</li>
-                    <li>ReactJS</li>
-                    <li>NextJS</li>
-                </ul>
-            </div>
-            <div className='backend_skills border-solid border-2 border-sky-500 bg-orange-300'>
-                <h1 className='text-4xl font-bold'>Backend</h1>
-                <ul className='gap-y-3'>
-                    <li>NodeJS</li>
-                    <li>ExpressJS</li>
-                    <li>MongoDB-CSS</li>
-                    <li>SQL</li>
-                    <li>Elasticsearch</li>
-                </ul>
-            </div>
-            <div className='cloud_skills'>
-                <h1 className='text-4xl font-bold'>Cloud</h1>
-                <ul>
-                    <li>IAM</li>
-                    <li>AWS Lambda</li>
-                    <li>S3</li>
-                </ul>
-            </div>
-            <div className='version_skills h-auto'>
-                <h1 className='text-4xl font-bold'>Version Control</h1>
-                <ul>
-                    <li>Git</li>
-                    <li>GitHub</li>
-                    <li>BitBucket</li>
-                </ul>
+        <div>
+            <h1 className='text-center text-6xl font-bold my-10'>Skills</h1>
+            <div id='skills' className='grid grid-cols-4 justify-center gap-x-5 items-center text-center w-4/5 mx-auto  max-[1000px]:grid-cols-1 gap-y-5'>
+            <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-100 dark:border-gray-700 h-80">
+                    <h5 className="mb-4 text-4xl font-bold text-black">Frontend</h5>
+                    <ul role="list" className="space-y-5 my-7">
+                        <li className="flex items-center">
+                            <span className="text-base font-medium leading-tight  ms-3">HTML</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight ms-3">CSS3</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight  ms-3">JavaScript</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tigh ms-3">TypeScript</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight ms-3">ReactJS</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight ms-3">NextJS</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 h-80">
+                    <h5 className="mb-4 text-4xl font-medium text-white">Backend</h5>
+
+                    <ul role="list" className="space-y-5 my-7">
+                        <li className="flex items-center">
+                            <span className="text-base font-medium leading-tight text-white  ms-3">NodeJS</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white  ms-3">ExpressJS</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white ms-3">MongoDB</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white ms-3">SQL</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white ms-3">Elasticsearch</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-100 dark:border-gray-700 h-80">
+                    <h5 className="mb-4 text-4xl font-bold text-black">Cloud</h5>
+                    <ul role="list" className="space-y-5 my-7">
+                        <li className="flex items-center">
+                            <span className="text-base font-medium leading-tight text-black ms-3">IAM</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-black ms-3">AWS Lambda</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-black ms-3">S3</span>
+                        </li>
+                    </ul>
+                </div>
+                <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 h-80">
+                    <h5 className="mb-4 text-4xl font-bold text-white">Version Control</h5>
+                    <ul role="list" className="space-y-5 my-7">
+                        <li className="flex items-center">
+                            <span className="text-base font-medium leading-tight text-white ms-3">Git</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white ms-3">GitHub</span>
+                        </li>
+                        <li className="flex">
+                            <span className="text-base font-medium leading-tight text-white ms-3">BitBucket</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     )
