@@ -1,28 +1,76 @@
-import React from 'react'
-import Link from 'next/link'
-import { FaGithub } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
-import { FaInstagram } from "react-icons/fa";
-import { MdOutlineEmail } from "react-icons/md";
-import { LuPhone } from "react-icons/lu";
+"use client";
+import { Mail, Phone,Linkedin, Github } from "lucide-react";
+import { motion } from "framer-motion";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <div className='footer my-16 flex flex-col gap-y-6' id="connect">
-      <h2 className='text-3xl text-center'>Tejas Chougale</h2>
-      <div className="contact flex items-center justify-center gap-x-5 max-[800px]:flex-col gap-y-3">
-        <MdOutlineEmail size={30}/>
-        <p>tejaschougale2107@gmail.com</p>
-        <LuPhone size={30}/>
-        <p>+91 8421912954</p>
-      </div>
-      <div className="links flex justify-center gap-x-10">
-      <Link href='https://www.github.com/Tejas-2107'><FaGithub size={30}/></Link>
-      <Link href='https://www.linkedin.com/in/tejas-chougale-82430a202/'><CiLinkedin size={30}/></Link>
-      <Link href='https://www.instagram.com/tejas_2107__/'><FaInstagram size={30}/></Link>
-      </div>
-    </div>
-  )
-}
+    <section
+      className="bg-[#0D0D0D] text-white py-16 px-6 md:px-12"
+      id="contact"
+    >
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-8"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Connect <span className="text-[#00ADB5]">with Me</span>
+      </motion.h2>
 
-export default Footer
+      <div className="flex flex-col items-center space-y-6 text-center">
+        <div className="flex flex-row items-center gap-6">
+          <motion.div
+            className="flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <Mail className="text-[#00ADB5]" />
+            <a
+              href="mailto:tejaschougale2107@gmail.com"
+              className="hover:underline text-sm"
+            >
+              tejaschougale2107@gmail.com
+            </a>
+          </motion.div>
+
+          <motion.div
+            className="flex items-center gap-3"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+          >
+            <Phone className="text-[#00ADB5]" />
+            <a href="tel:+91842191295" className="hover:underline text-sm">
+              +91 8421912954
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Optional: Socials */}
+        <motion.div
+          className="flex gap-6 mt-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <a
+            href="https://github.com/TejasChougale"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+           <Github className="text-[#00ADB5]"/>
+          </a>
+          <a
+            href="https://linkedin.com/in/tejaschougale"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin className="text-[#00ADB5]"/>
+          </a>
+          {/* Add more socials as needed */}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

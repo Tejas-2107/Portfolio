@@ -1,85 +1,45 @@
-import React from 'react'
+"use client";
+import { motion } from "framer-motion";
 
-const Skills = () => {
-    return (
-        <div>
-            <h1 className='text-center text-6xl font-bold my-10'>Skills</h1>
-            <div id='skills' className='grid grid-cols-4 justify-center gap-x-5 items-center text-center w-4/5 mx-auto  max-[1000px]:grid-cols-1 gap-y-5'>
-            <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-100 dark:border-gray-700 h-80">
-                    <h5 className="mb-4 text-4xl font-bold text-black">Frontend</h5>
-                    <ul role="list" className="space-y-5 my-7">
-                        <li className="flex items-center">
-                            <span className="text-base font-medium leading-tight  ms-3">HTML</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight ms-3">CSS3</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight  ms-3">JavaScript</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tigh ms-3">TypeScript</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight ms-3">ReactJS</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight ms-3">NextJS</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="w-full max-w-sm p-4 bg-gray-800 border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 h-80">
-                    <h5 className="mb-4 text-4xl font-medium text-white">Backend</h5>
+const skills = {
+  Frontend: ["HTML", "CSS3","Tailwind CSSS", "ReactJS", "NextJS"],
+  Backend: ["NodeJS", "ExpressJS", "MongoDB", "SQL", "Elasticsearch"],
+  Cloud: ["IAM", "AWS Lambda", "S3"],
+  Language: ["C++", "JavaScript", "TypeScript"],
+};
 
-                    <ul role="list" className="space-y-5 my-7">
-                        <li className="flex items-center">
-                            <span className="text-base font-medium leading-tight text-white  ms-3">NodeJS</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white  ms-3">ExpressJS</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white ms-3">MongoDB</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white ms-3">SQL</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white ms-3">Elasticsearch</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-100 dark:border-gray-700 h-80">
-                    <h5 className="mb-4 text-4xl font-bold text-black">Cloud</h5>
-                    <ul role="list" className="space-y-5 my-7">
-                        <li className="flex items-center">
-                            <span className="text-base font-medium leading-tight text-black ms-3">IAM</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-black ms-3">AWS Lambda</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-black ms-3">S3</span>
-                        </li>
-                    </ul>
-                </div>
-                <div className="w-full max-w-sm p-4 bg-gray-800 border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700 h-80">
-                    <h5 className="mb-4 text-4xl font-bold text-white">Version Control</h5>
-                    <ul role="list" className="space-y-5 my-7">
-                        <li className="flex items-center">
-                            <span className="text-base font-medium leading-tight text-white ms-3">Git</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white ms-3">GitHub</span>
-                        </li>
-                        <li className="flex">
-                            <span className="text-base font-medium leading-tight text-white ms-3">BitBucket</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    )
+export default function Skills() {
+  return (
+    <section className="bg-[#0D0D0D] text-white py-16 px-6 md:px-12" id="skills">
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        My <span className="text-[#00ADB5]">Skills</span>
+      </motion.h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {Object.entries(skills).map(([category, items], i) => (
+          <motion.div
+            key={category}
+            className="bg-[#1A1A1A] p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2, duration: 0.6 }}
+          >
+            <h3 className="text-2xl font-semibold text-[#00ADB5] mb-4">{category}</h3>
+            <ul className="space-y-2 text-lg text-[#CCCCCC]">
+              {items.map(skill => (
+                <li key={skill} className="before:content-['▹'] before:text-[#00ADB5] before:mr-2">
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }
-
-export default Skills

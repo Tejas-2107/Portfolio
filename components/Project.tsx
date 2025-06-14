@@ -1,58 +1,54 @@
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import fundImage from '../public/fund.jpg'
-import youtubeImgae from '../public/Youtube.png'
-import netflixImage from '../public/netflix.png'
-import { FaSquareGithub } from "react-icons/fa6";
+"use client";
+import { motion } from "framer-motion";
+import { projects } from "@/constants";
+import Image from "next/image";
+export default function ProjectsSection() {
+  return (
+    <section
+      className="bg-[#0D0D0D] text-white py-16 px-6 md:px-12"
+      id="projects"
+    >
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        My <span className="text-[#00ADB5]">Projects</span>
+      </motion.h2>
 
-const Project = () => {
-    return (
-        <div className='project w-4/5 mx-auto mt-20' id='projects'>
-            <h1 className='text-center text-6xl font-bold mb-20'>Projects</h1>
-            <div id='skills' className='grid grid-col-3 justify-center items-center text-center mx-auto  max-[1000px]:grid-cols-1 gap-y-4 w-full'>
-                <div className='flex items-center border-solid border-2 border-gray-300 rounded-md p-3 max-[1000px]:flex-col'>
-                    <div className='project_image w-3/5'>
-                        <Image src={fundImage} alt='fund allocation' className='w-40' />
-                    </div>
-                    <div className="description">
-                        <h2 className='text-2xl font-bold mb-3'>Fund Allocation System</h2>
-                        <p className='text-left ml-2'>Developed a comprehensive system enabling users to apply for project funds. The user interface was built using ReactJS.The backend was efficiently managed with Node.js and Express to handle API calls, ensuring seamless communication between the client and server. Mongoose was utilized to connect the application with MongoDB, providing robust data storage and retrieval capabilities. An admin panel was included to allow administrators to allocate funds based on the submitted project ideas, ensuring a streamlined and efficient fund distribution process.
-                        </p>
-                        <div className='github flex justify-center mt-2'>
-                            <Link href="https://github.com/Tejas-2107/Fund_Allocation_Client"><FaSquareGithub size={30} color='gray' /></Link>
-                        </div>
-                    </div>
-                </div>
-                <div className='flex items-center border-solid border-2 border-gray-300 rounded-md p-3 max-[1000px]:flex-col'>
-                    <div className='project_image w-3/5'>
-                        <Image src={youtubeImgae} alt='youtube image' className='w-40' color='gray' />
-                    </div>
-                    <div className="description">
-                        <h2 className='text-2xl font-bold mb-3'>YouTube Clone</h2>
-                        <p className='text-left ml-2'>Developed a YouTube clone leveraging Google OAuth 2.0, YouTube API, ReactJS, and Tailwind CSS. The application integrates secure and seamless user authentication using Google OAuth 2.0. Additionally, it features a search bar, enabling users to easily search for and access videos from the YouTube API. This project showcases proficiency in modern web development technologies and API integration.. Key features include secure user authentication, video search functionality, and an intuitive user interface.This YouTube clone demonstrates the capability to integrate multiple APIs.
-                        </p>
-                        <div className='github flex justify-center mt-2'>
-                            <Link href="https://github.com/Tejas-2107/youtube-frontend" ><FaSquareGithub size={30} color='gray'/></Link>
-                        </div>
-                    </div>
-                </div>
-                <div className='flex items-center border-solid border-2 border-gray-300 rounded-md p-3 max-[1000px]:flex-col'>
-                    <div className='project_image w-3/5'>
-                        <Image src={netflixImage} alt='netflix image' className='w-40' />
-                    </div>
-                    <div className="description">
-                        <h2 className='text-2xl font-bold mb-3'>Netflix Admin Dashboard</h2>
-                        <p className='text-left ml-2'>Developed a comprehensive system enabling users to apply for project funds. The user interface was built using ReactJS.The backend was efficiently managed with Node.js and Express to handle API calls, ensuring seamless communication between the client and server. Mongoose was utilized to connect the application with MongoDB, providing robust data storage and retrieval capabilities. An admin panel was included to allow administrators to allocate funds based on the submitted project ideas, ensuring a streamlined and efficient fund distribution process.
-                        </p>
-                        <div className='github flex justify-center mt-2'>
-                            <Link href="https://github.com/Tejas-2107/Netflix-Clone" ><FaSquareGithub size={30} color='gray' /></Link>
-                        </div>
-                    </div>
-                </div>
+      <div className="grid gap-10 md:grid-cols-2">
+        {projects.map((project, i) => (
+          <motion.div
+            key={project.title}
+            className="bg-[#1A1A1A] rounded-xl overflow-hidden shadow-lg hover:scale-[1.01] transition"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2, duration: 0.6 }}
+          >
+            {/* className="w-full h-48 object-cover" */}
+            
+            <div className="p-6">
+              <h3 className="text-2xl font-semibold mb-2 text-[#00ADB5]">
+                {project.title}
+              </h3>
+              <p className="text-sm text-[#CCCCCC] mb-4">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
+                    className="bg-[#2A2A2A] text-[#00ADB5] px-3 py-1 rounded-full text-xs"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-        </div>
-
-    )
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }
-export default Project

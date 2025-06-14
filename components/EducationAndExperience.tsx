@@ -1,43 +1,110 @@
-import React from 'react'
+"use client";
+import { motion } from "framer-motion";
 
-const EducationAndExperience = () => {
-    return (
-        <div className='education w-4/5 mx-auto mt-24'>
-            <h1 className='text-center text-6xl font-bold my-10 mb-16'>Education and Experience</h1>
-            <div className='experience my-8'>
-                <details className="group">
-                    <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                        <span> Software Enginner Intern, Qualys Pune</span>
-                        <span className="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                            </svg>
-                        </span>
-                    </summary>
-                    <p className="text-neutral-600 mt-3 group-open:animate-fadeIn p-2">
-                        Collaborated on the QFlow Dashboard using Next.js and ExpressJS, enhancing features and functionality. Implemented cron jobs for workflow management, added version display with sorting using react-table, and fixed frontend bugs. Maintained detailed API documentation with Swagger and optimized Elasticsearch queries for efficient data retrieval
-                        <br />
-                        <span className='font-bold'>Skills:  </span>
-                        Next.js · TypeScript · Node.js · Elasticsearch · Swagger API · Express.js
-                    </p>
-                </details>
-            </div>
-            <div className='experience'>
-                <details className="group">
-                    <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                        <span> Bachelor of Technology in Information Technology</span>
-                        <span className="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                            </svg>
-                        </span>
-                    </summary>
-                    <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                        I completed my Bachelor of Technology in Information Technology from Pune University, where I studied subjects such as Object-Oriented Programming (OOP), Database Management Systems (DBMS), Operating Systems (OS), Networking, and Data Structures and Algorithms. My final year project was a Depression Detection System using deep learning and machine learning techniques.
-                    </p>
-                </details>
-            </div>
-            <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-400" />
+const experience = [
+  {
+    title: "Software Engineer Intern",
+    company: "Qualys",
+    period: "Jan 2024 – July 2024",
+    description:
+      "Worked on QFlow Dashboard using Next.js and ExpressJS. Added cron jobs for workflow, sortable version displays with React Table, and fixed UI bugs. Maintained API documentation using Swagger and optimized Elasticsearch queries.",
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Elasticsearch",
+      "Swagger API",
+      "Express.js",
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: "Bachelor of Technology in Information Technology",
+    college: "Pune University",
+    period: "2020 – 2024",
+    description:
+      "Studied core subjects like OOP, DBMS, OS, Networking, and DSA. Final year project: Depression Detection System using Deep Learning and Machine Learning.",
+  },
+];
+
+export default function EducationAndExperience() {
+  return (
+    <section
+      className="bg-[#0D0D0D] text-white py-16 px-6 md:px-12"
+      id="experience"
+    >
+      <motion.h2
+        className="text-3xl md:text-4xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        Education & <span className="text-[#00ADB5]">Experience</span>
+      </motion.h2>
+
+      <div className="space-y-16">
+        {/* Experience */}
+        <div>
+          <h3 className="text-2xl font-semibold text-[#00ADB5] mb-6">
+            Experience
+          </h3>
+          {experience.map((exp, index) => (
+            <motion.div
+              key={index}
+              className="bg-[#1A1A1A] p-6 rounded-xl shadow-md hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
+            >
+              <div className="flex flex-col md:flex-row justify-between mb-2">
+                <h4 className="text-xl font-semibold">
+                  {exp.title},{" "}
+                  <span className="text-[#AAAAAA]">{exp.company}</span>
+                </h4>
+                <span className="text-sm text-[#888]">{exp.period}</span>
+              </div>
+              <p className="text-[#CCCCCC] text-sm mb-3">{exp.description}</p>
+              <div className="flex flex-wrap gap-2">
+                {exp.skills.map((skill) => (
+                  <span
+                    key={skill}
+                    className="bg-[#2A2A2A] text-[#00ADB5] px-3 py-1 rounded-full text-xs"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
-    )
-}
 
-export default EducationAndExperience
+        {/* Education */}
+        <div>
+          <h3 className="text-2xl font-semibold text-[#00ADB5] mb-6">
+            Education
+          </h3>
+          {education.map((edu, index) => (
+            <motion.div
+              key={index}
+              className="bg-[#1A1A1A] p-6 rounded-xl shadow-md hover:shadow-lg transition"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 + 0.5, duration: 0.6 }}
+            >
+              <div className="flex flex-col md:flex-row justify-between mb-2">
+                <h4 className="text-xl font-semibold">{edu.degree}</h4>
+                <span className="text-sm text-[#888]">{edu.period}</span>
+              </div>
+              <p className="text-[#CCCCCC] text-sm">{edu.description}</p>
+              <p className="text-sm text-[#AAAAAA] mt-2">
+                University: {edu.college}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

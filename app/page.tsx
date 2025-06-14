@@ -4,6 +4,7 @@ import Project from "@/components/Project";
 import Skills from "@/components/Skills";
 import EducationAndExperience from "@/components/EducationAndExperience";
 import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
     <main className="main">
