@@ -1,75 +1,160 @@
 "use client";
-import { Mail, Phone,Linkedin, Github } from "lucide-react";
+import { Mail, Phone, Github, Linkedin } from "lucide-react";
 import { motion } from "framer-motion";
+
+const contactLinks = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "tejaschougale2107@gmail.com",
+    href: "mailto:tejaschougale2107@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 8421912954",
+    href: "tel:+918421912954",
+  },
+];
+
+const socials = [
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/TejasChougale",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/tejaschougale",
+  },
+];
 
 export default function Footer() {
   return (
     <section
-      className="bg-[#0D0D0D] text-white py-16 px-6 md:px-12"
-      id="contact"
+      id="connect"
+      className="bg-[#0A0A0F] text-white py-20 px-6 md:px-16"
     >
-      <motion.h2
-        className="text-3xl md:text-4xl font-bold text-center mb-8"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Connect <span className="text-[#00ADB5]">with Me</span>
-      </motion.h2>
+      <div className="max-w-2xl mx-auto">
 
-      <div className="flex flex-col items-center space-y-6 text-center">
-        <div className="flex flex-row items-center gap-6">
-          <motion.div
-            className="flex items-center gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-          >
-            <Mail className="text-[#00ADB5]" />
+        {/* Header */}
+        <motion.div
+          className="text-center mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+        >
+          <p className="text-[11px] tracking-[0.2em] uppercase mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>
+            Get in touch
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+            Connect{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ADB5] to-[#00CED1]">
+              with me
+            </span>
+          </h2>
+        </motion.div>
+
+        {/* Contact cards */}
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.1 }}
+        >
+          {contactLinks.map(({ icon: Icon, label, value, href }) => (
             <a
-              href="mailto:tejaschougale2107@gmail.com"
-              className="hover:underline text-sm"
+              key={label}
+              href={href}
+              className="flex items-center gap-3 p-4 rounded-xl transition-all duration-200 group"
+              style={{
+                border: "1px solid rgba(255,255,255,0.08)",
+                background: "rgba(255,255,255,0.03)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.15)";
+                (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.08)";
+                (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.03)";
+              }}
             >
-              tejaschougale2107@gmail.com
+              <div
+                className="flex items-center justify-center w-9 h-9 rounded-lg shrink-0"
+                style={{
+                  background: "rgba(0,173,181,0.10)",
+                  border: "1px solid rgba(0,173,181,0.20)",
+                }}
+              >
+                <Icon className="w-4 h-4 text-[#00ADB5]" />
+              </div>
+              <div className="min-w-0">
+                <p
+                  className="text-[10px] uppercase tracking-wider mb-0.5"
+                  style={{ color: "rgba(255,255,255,0.30)" }}
+                >
+                  {label}
+                </p>
+                <p
+                  className="text-sm font-medium truncate"
+                  style={{ color: "rgba(255,255,255,0.80)" }}
+                >
+                  {value}
+                </p>
+              </div>
             </a>
-          </motion.div>
+          ))}
+        </motion.div>
 
-          <motion.div
-            className="flex items-center gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-          >
-            <Phone className="text-[#00ADB5]" />
-            <a href="tel:+91842191295" className="hover:underline text-sm">
-              +91 8421912954
+        {/* Social buttons */}
+        <motion.div
+          className="flex justify-center gap-2 mb-10"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.2 }}
+        >
+          {socials.map(({ icon: Icon, label, href }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-200"
+              style={{
+                border: "1px solid rgba(255,255,255,0.10)",
+                background: "rgba(255,255,255,0.03)",
+                color: "rgba(255,255,255,0.55)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.20)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.80)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.border = "1px solid rgba(255,255,255,0.10)";
+                (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.55)";
+              }}
+            >
+              <Icon className="w-4 h-4" />
+              {label}
             </a>
-          </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Divider + copyright */}
+        <div
+          className="pt-6 text-center"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.20)" }}>
+            © {new Date().getFullYear()} Tejas Chougale
+          </p>
         </div>
 
-        {/* Optional: Socials */}
-        <motion.div
-          className="flex gap-6 mt-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-        >
-          <a
-            href="https://github.com/TejasChougale"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-           <Github className="text-[#00ADB5]"/>
-          </a>
-          <a
-            href="https://linkedin.com/in/tejaschougale"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Linkedin className="text-[#00ADB5]"/>
-          </a>
-          {/* Add more socials as needed */}
-        </motion.div>
       </div>
     </section>
   );
