@@ -29,9 +29,19 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 32, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+const badgeContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.45,
+    },
+  },
+};
+
+export const badgeItemVariants = {
+  hidden: { opacity: 0, scale: 0.85 },
+  visible: { opacity: 1, scale: 1 },
 };
 
 export default function EducationAndExperience() {
@@ -104,7 +114,7 @@ export default function EducationAndExperience() {
               {experience.map((exp, i) => (
                 <motion.div
                   key={i}
-                  variants={itemVariants}
+                  variants={badgeItemVariants}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className="group relative rounded-2xl border border-cyan-500/15 hover:border-cyan-500/30 bg-gradient-to-br from-cyan-500/5 to-transparent p-6 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/8"
                 >
@@ -180,7 +190,7 @@ export default function EducationAndExperience() {
               {education.map((edu, i) => (
                 <motion.div
                   key={i}
-                  variants={itemVariants}
+                  variants={badgeItemVariants}
                   whileHover={{ y: -4, transition: { duration: 0.2 } }}
                   className="group relative rounded-2xl border border-violet-500/15 hover:border-violet-500/30 bg-gradient-to-br from-violet-500/5 to-transparent p-6 transition-all duration-300 hover:shadow-xl hover:shadow-violet-500/8"
                 >

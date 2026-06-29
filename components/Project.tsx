@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { projects } from "@/constants";
 import Image from "next/image";
 import { FolderGit2, ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { badgeItemVariants } from "./EducationAndExperience";
 
 const cardColors = [
   { glow: "hover:shadow-cyan-500/10", border: "hover:border-cyan-500/25", accent: "bg-cyan-400" },
@@ -17,10 +18,7 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.13 } },
 };
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 36, scale: 0.97 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
-};
+
 
 export default function ProjectsSection() {
   return (
@@ -80,7 +78,7 @@ export default function ProjectsSection() {
             return (
               <motion.div
                 key={project.title}
-                variants={cardVariants}
+                variants={badgeItemVariants}
                 whileHover={{ y: -5, transition: { duration: 0.22 } }}
                 className={`
                   group relative flex flex-col overflow-hidden rounded-2xl

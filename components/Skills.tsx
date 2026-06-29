@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { badgeItemVariants } from "./EducationAndExperience";
 
 const skills = {
   Frontend: {
@@ -132,7 +133,7 @@ export default function Skills() {
         {Object.entries(skills).map(([category, data]) => (
           <motion.div
             key={category}
-            variants={cardVariants}
+            variants={badgeItemVariants}
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
             className={`
               group relative rounded-2xl border ${data.border}
@@ -169,7 +170,7 @@ export default function Skills() {
                 <motion.li
                   key={skill}
                   custom={i}
-                  variants={pillVariants}
+                  variants={badgeItemVariants}
                   className="flex items-center gap-2.5 group/pill"
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${data.dot} shrink-0 opacity-70 group-hover/pill:opacity-100 transition-opacity`} />

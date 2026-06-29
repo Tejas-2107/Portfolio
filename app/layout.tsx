@@ -20,7 +20,7 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} font-sans bg-[#0A0A0F] text-white antialiased min-h-screen relative`}
       >
         {/* Fixed Background Component */}
-        <CodeParticleBackground />
+        {/* <CodeParticleBackground /> */}
         
         {/* Main Application Content */}
         <div className="relative z-10">
